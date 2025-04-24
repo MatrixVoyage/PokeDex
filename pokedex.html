@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataDx Pokédex</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+  
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="title">POKÉDEX</h1>
+    <p class="subtitle">DATA ANALYSIS MODULE v2.5.7</p>
+  </div>
+  
+  <div class="search-container">
+    <input type="text" id="pokemonInput" placeholder="Enter Pokémon name or ID" autocomplete="off">
+    <button onclick="fetchPokemon()">QUERY</button>
+  </div>
+  
+  <div class="loading" id="loading">
+    <div class="loading-text">INITIALIZING DATA FETCH</div>
+  </div>
+  
+  <div class="data-container" id="dataContainer">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">POKÉMON PROFILE</div>
+        <div class="pokemon-id" id="pokeId">#000</div>
+      </div>
+      
+      <div class="pokemon-img-container">
+        <img class="pokemon-img" id="pokeImg" src="" alt="" onload="this.classList.add('loaded')">
+      </div>
+      
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="data-label">NAME</div>
+          <div class="data-value" id="pokeName">-</div>
+        </div>
+        
+        <div class="data-item">
+          <div class="data-label">HEIGHT</div>
+          <div class="data-value" id="pokeHeight">-</div>
+        </div>
+        
+        <div class="data-item">
+          <div class="data-label">WEIGHT</div>
+          <div class="data-value" id="pokeWeight">-</div>
+        </div>
+        
+        <div class="data-item">
+          <div class="data-label">BASE EXP</div>
+          <div class="data-value" id="pokeExp">-</div>
+        </div>
+      </div>
+      
+      <div class="data-item">
+        <div class="data-label">TYPES</div>
+        <div class="data-value" id="pokeType">-</div>
+      </div>
+      
+      <div class="data-item">
+        <div class="data-label">ABILITIES</div>
+        <div class="data-value" id="pokeAbilities">-</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">STATISTICS</div>
+      </div>
+      
+      <div class="stats-container" id="pokeStats">
+        <!-- Stats will be inserted here -->
+      </div>
+      
+      <div class="data-item">
+        <div class="data-label">MOVES</div>
+        <div class="moves-container" id="pokeMoves">
+          <!-- Moves will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="terminal-line">
+    <span id="terminalText">System ready. Awaiting query...</span>
+    <span class="terminal-cursor"></span>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
