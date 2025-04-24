@@ -1,2 +1,2 @@
 # PokeDex
-A simple but pritty Advance looking Pokedex uing only html,css and javascript.
+A simple but elegant Advance-looking Pokedex created with simply HTML, CSS, and Javascript.
