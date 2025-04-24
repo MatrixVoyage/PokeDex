@@ -32,7 +32,7 @@ const typeColors = {
     }
   });
   
-  // Terminal message function
+
   function setTerminalMessage(message, type = 'info') {
     let color;
     switch(type) {
