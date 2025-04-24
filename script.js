@@ -19,13 +19,13 @@ const typeColors = {
     fairy: '#EE99AC'
   };
   
-  // DOM elements
+
   const pokemonInput = document.getElementById('pokemonInput');
   const dataContainer = document.getElementById('dataContainer');
   const loading = document.getElementById('loading');
   const terminalText = document.getElementById('terminalText');
   
-  // Add event listener for Enter key
+ 
   pokemonInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       fetchPokemon();
@@ -53,7 +53,7 @@ const typeColors = {
       return;
     }
     
-    // Show loading, hide data container
+    
     loading.style.display = 'block';
     dataContainer.style.display = 'none';
     setTerminalMessage(`Fetching data for: ${nameOrId}...`);
@@ -73,21 +73,21 @@ const typeColors = {
   }
   
   function displayPokemon(data) {
-    // Set basic info
+  
     document.getElementById('pokeName').textContent = data.name.toUpperCase();
     document.getElementById('pokeId').textContent = `#${data.id.toString().padStart(3, '0')}`;
     document.getElementById('pokeHeight').textContent = `${(data.height / 10).toFixed(1)}m`;
     document.getElementById('pokeWeight').textContent = `${(data.weight / 10).toFixed(1)}kg`;
     document.getElementById('pokeExp').textContent = data.base_experience;
     
-    // Set image
+
     const imgUrl = data.sprites.other['official-artwork'].front_default || 
                    data.sprites.front_default;
     const imgElement = document.getElementById('pokeImg');
     imgElement.src = imgUrl;
     imgElement.classList.remove('loaded');
     
-    // Set types with colored badges
+   
     const typesContainer = document.getElementById('pokeType');
     typesContainer.innerHTML = '';
     data.types.forEach(type => {
@@ -99,7 +99,7 @@ const typeColors = {
       typesContainer.appendChild(badge);
     });
     
-    // Set abilities
+
     const abilitiesContainer = document.getElementById('pokeAbilities');
     abilitiesContainer.innerHTML = '';
     data.abilities.forEach((ability, index) => {
@@ -109,7 +109,7 @@ const typeColors = {
       abilitiesContainer.appendChild(span);
     });
     
-    // Set stats
+
     const statsContainer = document.getElementById('pokeStats');
     statsContainer.innerHTML = '';
     data.stats.forEach(stat => {
@@ -136,7 +136,7 @@ const typeColors = {
       statsContainer.appendChild(statItem);
     });
     
-    // Set moves (first 20)
+   
     const movesContainer = document.getElementById('pokeMoves');
     movesContainer.innerHTML = '';
     data.moves.slice(0, 20).forEach(move => {
@@ -145,8 +145,7 @@ const typeColors = {
       moveItem.textContent = move.move.name.split('-').join(' ').toUpperCase();
       movesContainer.appendChild(moveItem);
     });
-    
-    // Hide loading, show data container with animation
+  
     loading.style.display = 'none';
     dataContainer.style.display = 'grid';
     setTimeout(() => {
@@ -154,7 +153,7 @@ const typeColors = {
     }, 50);
   }
   
-  // Load a random Pokémon on page load
+
   window.addEventListener('load', () => {
     const randomId = Math.floor(Math.random() * 898) + 1;
     pokemonInput.value = randomId;
